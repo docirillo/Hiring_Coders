@@ -1,0 +1,77 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  color: black;
+  font-family: 'Roboto', sans-serif;
+}
+
+ul {
+  list-style: none;
+  /* font-size: 20px; */
+  font-style: italic;
+  font-weight: 700;
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  /* background: url(./imagem) no-repeat center center fixed;
+  background-size: cover; */
+  /* background: linear-gradient(90deg, orange, yellow); */
+  background-color: #fafc52;
+}
+
+header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px;
+}
+
+#logo img {
+  max-width: 200px;
+  max-height: 150px;
+  width: auto;
+  height: auto;
+}
+
+header ul {
+  display: flex;
+}
+
+header ul li {
+  padding: 5px;
+}
+
+.container {
+  text-align: center;
+}
+
+.container .name h1 {
+  font-size: 60px;
+}
+.container .name h5 {
+  font-size: 25px;
+}
+
+#about p {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.form {
+  width: 40%;
+  margin: 0 auto;
+}
+
+.form input {
+  width: 50%;
+}
+
+.form button {
+  width: 15%;
+}
