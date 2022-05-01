@@ -5,11 +5,26 @@ module.exports = class Cliente {
     this.telefone = '';
   }
 
+  nomeUppercase() {
+    return this.nome.toUpperCase();
+  }
+
   static primeiro() {
     return new Cliente();
   }
 
   static todos() {
-    return [];
+    return [
+      new Cliente(),
+      new Cliente(),
+      new Cliente(),
+      new Cliente(),
+      new Cliente(),
+      new Cliente(),
+      new Cliente(),
+      new Cliente(),
+      new Cliente(),
+      new Cliente(),
+    ];
   }
 };
