@@ -2,6 +2,6 @@ let valorNumero: any;
 
 valorNumero = 25;
 
-function soma(a, b) {
+function soma(a: any, b: any) {
   return a + b;
 }
