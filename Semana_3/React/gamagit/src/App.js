@@ -1,5 +1,23 @@
 import React, { useState } from 'react';
+import axios from 'axios';
+
 function App(props) {
+  const [user, setUser] = useState('');
+
+  //create function handleSearch
+  const handleSearch = (e) => {
+    e.preventDefault();
+    //make a request to the github API
+    axios
+      .get(`https://api.github.com/users/${user}/repos`)
+      .then((res) => {
+        console.log(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
   return (
     <>
       <input
@@ -7,8 +25,12 @@ function App(props) {
         id="user"
         className="userInput"
         placeholder="Usuário"
+        value={user}
+        onChange={(e) => setUser(e.target.value)}
       />
-      <button type="button">Pesquisar</button>
+      <button type="button" onClick={handleSearch}>
+        Pesquisar
+      </button>
     </>
   );
 }
