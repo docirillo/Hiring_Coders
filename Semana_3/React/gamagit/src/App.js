@@ -1,38 +1,8 @@
-import React, { useState } from 'react';
-import axios from 'axios';
+import React from 'react';
+import Routes from './routes';
 
-function App(props) {
-  const [user, setUser] = useState('');
-
-  //create function handleSearch
-  const handleSearch = (e) => {
-    e.preventDefault();
-    //make a request to the github API
-    axios
-      .get(`https://api.github.com/users/${user}/repos`)
-      .then((res) => {
-        console.log(res.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
-
-  return (
-    <>
-      <input
-        name="user"
-        id="user"
-        className="userInput"
-        placeholder="Usuário"
-        value={user}
-        onChange={(e) => setUser(e.target.value)}
-      />
-      <button type="button" onClick={handleSearch}>
-        Pesquisar
-      </button>
-    </>
-  );
+function App() {
+  return <Routes />;
 }
 
 export default App;
