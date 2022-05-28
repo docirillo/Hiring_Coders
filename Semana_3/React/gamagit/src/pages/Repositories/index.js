@@ -15,10 +15,12 @@ export default function Repositories() {
     <S.Container>
       <S.Title>Repositórios</S.Title>
       <S.List>
-        {repositories.map((repository) => {
-          return <S.ListItem>{repository}</S.ListItem>;
-        })}
+        {repositories.map((repository) => (
+          <S.ListItem key={repository}>Repositório:{repository}</S.ListItem>
+        ))}
       </S.List>
+
+      <S.LinkHome to={'/'}>Voltar</S.LinkHome>
     </S.Container>
   );
 }
