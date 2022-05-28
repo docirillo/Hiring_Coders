@@ -5,14 +5,21 @@ import * as S from './styled';
 export default function Home(props) {
   const [user, setUser] = useState('');
 
-  //create function handleSearch
   const handleSearch = (e) => {
     e.preventDefault();
     //make a request to the github API
     axios
       .get(`https://api.github.com/users/${user}/repos`)
       .then((res) => {
-        console.log(res.data);
+        const repositories = res.data;
+        const repositoriesName = [];
+        repositories.map((repository) => {
+          repositoriesName.push(repository.name);
+        });
+        localStorage.setItem(
+          'repositoriesName',
+          JSON.stringify(repositoriesName),
+        );
       })
       .catch((err) => {
         console.log(err);
