@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import * as S from './styled';
+import { useNavigate } from 'react-router-dom';
 
 export default function Home(props) {
+  const navigate = useNavigate();
   const [user, setUser] = useState('');
 
   const handleSearch = (e) => {
@@ -20,6 +22,7 @@ export default function Home(props) {
           'repositoriesName',
           JSON.stringify(repositoriesName),
         );
+        navigate('/repositories');
       })
       .catch((err) => {
         console.log(err);

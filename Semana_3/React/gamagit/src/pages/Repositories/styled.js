@@ -22,6 +22,6 @@ export const List = styled.ul`
 export const ListItem = styled.li`
   margin: 0.5rem 0;
   background: #000;
-  color: greenyellow;
+  color: #fff;
   padding: 0.5rem;
 `;
