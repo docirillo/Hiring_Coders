@@ -1,6 +1,4 @@
 import { createServer } from 'http';
-import { readFile } from 'fs';
-import { resolve } from 'path';
 import { parse } from 'querystring';
 
 const server = createServer((req, res) => {
@@ -11,37 +9,6 @@ const server = createServer((req, res) => {
       res.end();
       break;
     }
-    case '/login': {
-      const path = resolve(__dirname, './pages/login.html');
-      readFile(path, (error, file) => {
-        if (error) {
-          response.writeHead(500, "Can't process HTML file");
-          response.end();
-          return;
-        }
-
-        res.writeHead(200);
-        res.write(file);
-        res.end();
-      });
-      break;
-    }
-
-    case '/home': {
-      const path = resolve(__dirname, './pages/home.html');
-      readFile(path, (error, file) => {
-        if (error) {
-          response.writeHead(500, "Can't process HTML file");
-          response.end();
-          return;
-        }
-        res.writeHead(200);
-        res.write(file);
-        res.end();
-      });
-      break;
-    }
-
     case '/authenticate': {
       let data = '';
       req.on('data', (chunk) => {
@@ -49,9 +16,6 @@ const server = createServer((req, res) => {
       });
       req.on('end', () => {
         const params = parse(data);
-        res.writeHead(301, {
-          Location: '/home',
-        });
         res.end();
       });
 
