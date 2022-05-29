@@ -1,31 +1,14 @@
-import { createServer } from 'http';
-import { parse } from 'querystring';
+import express from 'express';
 
-const server = createServer((req, res) => {
-  switch (req.url) {
-    case '/status': {
-      res.writeHead(200, { 'Content-Type': 'application/json' });
-      res.write(JSON.stringify({ status: 'ok' }));
-      res.end();
-      break;
-    }
-    case '/authenticate': {
-      let data = '';
-      req.on('data', (chunk) => {
-        data += chunk;
-      });
-      req.on('end', () => {
-        const params = parse(data);
-        res.end();
-      });
+const server = express();
 
-      break;
-    }
-    default: {
-      res.writeHead(404, 'Service not found');
-      res.end();
-    }
-  }
+server.get('/status', (_, response) => {
+  response.send({ status: 'ok' });
+});
+
+server.post('/authenticate', express.json(), (request, response) => {
+  console.log('E-mail', request.body.email, 'Senha', request.body.password);
+  response.send();
 });
 
 const PORT = process.env.PORT ? parseInt(process.env.PORT) : 8000;
