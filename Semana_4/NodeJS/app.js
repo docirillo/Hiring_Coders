@@ -12,6 +12,7 @@ const port = 3000;
 // Implementação da regra de negócio
 const server = http.createServer((req, res) => {
   let resposta;
+  //decodificacao da url
   const urlParse = url.parse(req.url, true);
   //Receber informacoes do usuario
   const params = queryString.parse(urlParse.search);
